@@ -1,5 +1,5 @@
 <script>
-	import Sacha from '../static/images/avatar.png';
+	import Sacha from '/static/images/avatar.png';
 </script>
 
 <nav>
@@ -10,12 +10,12 @@
 		<li>Blog</li>
 	</ul>
 </nav>
-K
+
 <style lang='scss'>
   nav {
     display: flex;
-		justify-content: space-around;
-		background: darkgrey;
+    justify-content: space-around;
+    background: darkgrey;
 
     img {
       border-radius: 50%;
