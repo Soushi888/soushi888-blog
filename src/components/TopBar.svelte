@@ -1,7 +1,7 @@
 <script>
-	import Sacha from '/images/avatar.png';
-	import githubIcon from '/images/github_icon.svg';
-	import linkedInIcon from '/images/linkedin_icon.png';
+	import Sacha from '/static/images/avatar.png';
+	import githubIcon from '/static/images/github_icon.svg';
+	import linkedInIcon from '/static/images/linkedin_icon.png';
 </script>
 
 <div id='TopBar'>
@@ -18,8 +18,6 @@
 </div>
 
 <style lang='scss'>
-	//@import "../styles/variables";
-
   #TopBar {
     display: flex;
     justify-content: space-around;
@@ -30,7 +28,6 @@
     h1 {
       font-size: 2.8rem;
       color: #C4C4C4;
-      //color: $space;
     }
 
     img {

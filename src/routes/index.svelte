@@ -10,7 +10,7 @@
 	<h1>Home</h1>
 </main>
 
-<style>
+<style global lang='scss'>
     h1 {
         font-size: 3rem;
         font-weight: 700;
