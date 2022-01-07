@@ -1,5 +1,5 @@
-<script lang='ts'>
-	import TopBar from '../components/TopBar.svelte';
+<script>
+	import TopBar from "../components/TopBar.svelte";
 </script>
 
 <header>
@@ -7,7 +7,7 @@
 </header>
 
 <main>
-	<h1>Home</h1>
+	<h1>Blog</h1>
 </main>
 
 <style>
@@ -15,6 +15,6 @@
         font-size: 3rem;
         font-weight: 700;
         text-align: center;
-				margin-top: 20px;
+        margin-top: 20px;
     }
 </style>
