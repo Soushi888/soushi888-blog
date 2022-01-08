@@ -30,14 +30,14 @@
   #TopBar {
     display: flex;
     justify-content: space-between;
-		padding: 0 var(--marge);
+    padding: 0 var(--marge);
     align-items: center;
     height: 100px;
-    background: #383737;
+    background: var(--background-dark);
 
     h1 {
       font-size: 2.8rem;
-      color: #C4C4C4;
+      color: var(--background-light);
     }
 
     img {
@@ -45,16 +45,16 @@
       border-radius: 50%;
     }
 
-		div {
-			display: flex;
-			align-items: center;
-			gap: var(--space)
-		}
+    div {
+      display: flex;
+      align-items: center;
+      gap: var(--space)
+    }
 
     nav {
       display: flex;
       gap: 20px;
-      background: #C4C4C4;
+      background: var(--background-light);
       padding: 10px 15px;
       height: 30px;
       -webkit-border-radius: 25px;
@@ -70,7 +70,7 @@
           border-radius: 25%;
 
           &:hover {
-            filter: brightness(0) saturate(100%) invert(12%) sepia(49%) saturate(5964%) hue-rotate(357deg) brightness(94%) contrast(118%);
+            filter: var(--red-filter);
           }
         }
 

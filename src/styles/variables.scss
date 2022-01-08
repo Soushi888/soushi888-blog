@@ -5,4 +5,10 @@ $primary: #C4C4C4;
   --space: 25px;
   --marge-sm: calc(var(--space) * 2);
   --marge: calc(var(--space) * 4);
+
+  --background-dark: #383737;
+  --background-light: #C4C4C4;
+
+  --red: #e10d0d;
+  --red-filter: brightness(0) saturate(100%) invert(15%) sepia(97%) saturate(7467%) hue-rotate(21deg) brightness(98%) contrast(114%);
 }
