@@ -20,7 +20,7 @@
   header {
     display: flex;
     justify-content: space-between;
-    padding: calc(var(--space) * 2);
+    padding: calc(var(--space) * 4);
     background: #FFFCDE;
 		
 		@media screen and (max-width: 1156px){

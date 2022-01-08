@@ -48,7 +48,7 @@
 <style lang='scss'>
   section {
     background: #EBE8CE;
-    padding: 0 calc(var(--space) * 3);
+    padding: 0 calc(var(--space) * 4);
 
     h2 {
       text-align: center;
