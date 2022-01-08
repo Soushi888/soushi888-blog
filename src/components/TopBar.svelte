@@ -1,7 +1,7 @@
 <!-- JS -->
 <script>
 	import { page } from '$app/stores';
-	import Sacha from '/static/images/avatar.png';
+	import Avatar from '/static/images/avatar.png';
 	import githubIcon from '/static/images/github_icon.svg';
 	import linkedInIcon from '/static/images/linkedin_icon.png';
 
@@ -10,8 +10,11 @@
 
 <!-- HTML -->
 <div id='TopBar'>
-	<a href='/'><img src={Sacha} alt='Sacha Pignot' /></a>
-	<h1>Sacha Pignot</h1>
+	<div>
+		<a href='/'><img src={Avatar} alt='Sacha Pignot' /></a>
+		<h1>Soushi888</h1>
+	</div>
+
 	<nav>
 		<a href='/' class:active={$page.path === "/"}>Accueil</a>
 		<a href='/blog' class:active={$page.path === "/blog"}>Blog</a>
@@ -26,7 +29,8 @@
 <style lang='scss'>
   #TopBar {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+		padding: 0 var(--marge);
     align-items: center;
     height: 100px;
     background: #383737;
@@ -41,7 +45,13 @@
       border-radius: 50%;
     }
 
-    div, nav {
+		div {
+			display: flex;
+			align-items: center;
+			gap: var(--space)
+		}
+
+    nav {
       display: flex;
       gap: 20px;
       background: #C4C4C4;

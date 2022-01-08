@@ -5,6 +5,10 @@
 </script>
 
 <!-- HTML -->
+<svelte:head>
+	<title>Soushi888</title>
+</svelte:head>
+
 <main>
 	<Header />
 	<About />

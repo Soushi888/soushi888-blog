@@ -9,8 +9,9 @@
 	<img src='{FlowerOfLife}' alt='Fleur de vie'>
 	<div>
 		<h2>Citation du jour</h2>
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam animi cumque ducimus ea eveniet ipsam odio quis
-			repudiandae vitae voluptatibus? Aliquam delectus eius fugit illum minus nemo pariatur quas, similique.</p>
+		<p>"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam animi cumque ducimus ea eveniet ipsam odio quis
+			repudiandae vitae voluptatibus? Aliquam delectus eius fugit illum minus nemo pariatur quas, similique."</p>
+		<p>- Auteur</p>
 	</div>
 	<img src={Network} alt='Réseau pair à pair'>
 </header>
@@ -20,20 +21,28 @@
   header {
     display: flex;
     justify-content: space-between;
-    padding: calc(var(--space) * 4);
+    padding: var(--marge);
     background: #FFFCDE;
-		
-		@media screen and (max-width: 1156px){
-			flex-direction: column;
-			align-items: center;
 
-			div {
-				margin: var(--space);
-			}
+    @media screen and (max-width: 1350px) {
+      flex-wrap: wrap;
+			justify-content: space-around;
 
-			img {
-				width: 100%;
-			}
+      div {
+        margin: var(--space);
+        order: -1;
+      }
+
+      img {
+        width: 100%;
+      }
+    }
+
+    @media screen and (max-width: 957px) {
+      padding: var(--space);
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space);
     }
 
     img {

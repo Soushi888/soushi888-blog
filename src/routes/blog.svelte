@@ -1,4 +1,8 @@
 <!-- HTML -->
+<svelte:head>
+	<title>Soushi888 | Blog</title>
+</svelte:head>
+
 <main>
 	<h1>Blog</h1>
 </main>

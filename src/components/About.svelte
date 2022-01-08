@@ -48,7 +48,7 @@
 <style lang='scss'>
   section {
     background: #EBE8CE;
-    padding: 0 calc(var(--space) * 4);
+    padding: 0 var(--marge);
 
     h2 {
       text-align: center;
@@ -76,21 +76,25 @@
         border-radius: 50%;
       }
 
-			@media screen and (max-width: 1000px) {
-				flex-direction: column;
-				align-items: center;
+      @media screen and (max-width: 1000px) {
+        flex-direction: column;
+        align-items: center;
 
-				.text-column, img {
+        .text-column, img {
           width: 100%;
-					height: 100%;
-				}
-			}
+          height: 100%;
+        }
+      }
     }
 
     .text-row {
       display: flex;
       flex-direction: column;
       padding: var(--space) 0;
+    }
+
+    @media screen and (max-width: 1000px) {
+      padding: 0 var(--marge-sm);
     }
   }
 </style>
