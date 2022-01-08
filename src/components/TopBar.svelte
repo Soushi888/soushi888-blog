@@ -7,14 +7,14 @@
 <div id='TopBar'>
 	<img src={Sacha} alt='Sacha Pignot' />
 	<h1>Sacha Pignot</h1>
-	<div>
+	<nav>
 		<a href='/'>Accueil</a>
 		<a href='/blog'>Blog</a>
-	</div>
-	<div>
+	</nav>
+	<nav>
 		<a href='/'><img src={githubIcon} alt='Github logo'></a>
 		<a href='/'><img src={linkedInIcon} alt='LinkedIn logo'></a>
-	</div>
+	</nav>
 </div>
 
 <style lang='scss'>
@@ -35,7 +35,7 @@
       border-radius: 50%;
     }
 
-    div {
+    div, nav {
       display: flex;
       gap: 20px;
       background: #C4C4C4;

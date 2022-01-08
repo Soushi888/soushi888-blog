@@ -1,20 +1,23 @@
 <script lang='ts'>
-	import TopBar from '../components/TopBar.svelte';
+	import Header from '../components/Header.svelte';
 </script>
 
-<header>
-	<TopBar />
-</header>
-
+<!-- HTML -->
 <main>
-	<h1>Home</h1>
 </main>
+<Header />
 
-<style global lang='scss'>
-    h1 {
-        font-size: 3rem;
-        font-weight: 700;
-        text-align: center;
-				margin-top: 20px;
-    }
+<style lang='scss'>
+  h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .caps-alert {
+    margin-top: 25px;
+    color: red;
+    text-transform: uppercase;
+  }
 </style>
