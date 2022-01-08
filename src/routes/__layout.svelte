@@ -5,3 +5,9 @@
 
 <TopBar/>
 <slot/>
+
+<style global lang='scss'>
+  p {
+      font-size: 1.3rem;
+  }
+</style>

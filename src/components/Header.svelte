@@ -19,8 +19,8 @@
 <style lang='scss'>
   header {
     display: flex;
-    justify-content: space-evenly;
-    padding: calc(var(--space) * 2) 0;
+    justify-content: space-between;
+    padding: calc(var(--space) * 2);
     background: #FFFCDE;
 		
 		@media screen and (max-width: 1156px){
