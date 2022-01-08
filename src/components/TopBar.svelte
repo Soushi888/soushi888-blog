@@ -1,22 +1,28 @@
+<!-- JS -->
 <script>
+	import { page } from '$app/stores';
 	import Sacha from '/static/images/avatar.png';
 	import githubIcon from '/static/images/github_icon.svg';
 	import linkedInIcon from '/static/images/linkedin_icon.png';
+
+	console.log($page.params);
 </script>
 
+<!-- HTML -->
 <div id='TopBar'>
-	<img src={Sacha} alt='Sacha Pignot' />
+	<a href='/'><img src={Sacha} alt='Sacha Pignot' /></a>
 	<h1>Sacha Pignot</h1>
 	<nav>
-		<a href='/'>Accueil</a>
-		<a href='/blog'>Blog</a>
+		<a href='/' class:active={$page.path === "/"}>Accueil</a>
+		<a href='/blog' class:active={$page.path === "/blog"}>Blog</a>
 	</nav>
 	<nav>
-		<a href='/'><img src={githubIcon} alt='Github logo'></a>
-		<a href='/'><img src={linkedInIcon} alt='LinkedIn logo'></a>
+		<a href='https://github.com/Soushi888' target='_blank'><img src={githubIcon} alt='Github logo'></a>
+		<a href='https://www.linkedin.com/in/sacha-pignot/' target='_blank'><img src={linkedInIcon} alt='LinkedIn logo'></a>
 	</nav>
 </div>
 
+<!-- CSS -->
 <style lang='scss'>
   #TopBar {
     display: flex;
@@ -40,7 +46,7 @@
       gap: 20px;
       background: #C4C4C4;
       padding: 10px 15px;
-			height: 30px;
+      height: 30px;
       -webkit-border-radius: 25px;
       -moz-border-radius: 25px;
       border-radius: 30px;
@@ -53,9 +59,9 @@
           height: 30px;
           border-radius: 25%;
 
-					&:hover {
+          &:hover {
             filter: brightness(0) saturate(100%) invert(12%) sepia(49%) saturate(5964%) hue-rotate(357deg) brightness(94%) contrast(118%);
-					}
+          }
         }
 
         &:hover {
@@ -64,6 +70,10 @@
 
         &:visited {
           color: initial;
+        }
+
+        &.active {
+          color: #e10d0d;
         }
       }
     }

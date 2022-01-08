@@ -1,15 +1,9 @@
-<script>
-	import TopBar from "../components/TopBar.svelte";
-</script>
-
-<header>
-	<TopBar />
-</header>
-
+<!-- HTML -->
 <main>
 	<h1>Blog</h1>
 </main>
 
+<!-- CSS -->
 <style>
     h1 {
         font-size: 3rem;

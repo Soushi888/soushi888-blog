@@ -1,16 +1,39 @@
+<!-- JS -->
 <script context='module'>
-	export const load = ({ error, status }) => {
+	export const load = ({ status, error, page }) => {
+		console.log(page.path);
 		return {
 			props: {
-				title: `${status}: ${error.message}`
+				error,
+				status,
 			}
 		};
 	};
 </script>
 <script>
-	export let title;
+	import '/static/reset.css';
+	import '../styles/variables.scss';
+
+	export let error, status;
 </script>
 
-<h1>{title}</h1>
+<!-- HTML -->
+<main>
+	<h1>Error {status}</h1>
+	<p>{error.message}</p>
+</main>
 
-<p>This was a badass error !</p>
+<!-- CSS -->
+<style lang='scss'>
+  main {
+    h1, p {
+      text-align: center;
+    }
+
+    h1 {
+      font-weight: 600;
+      font-size: 2.5rem;
+      margin: var(--space);
+    }
+  }
+</style>
