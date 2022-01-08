@@ -4,8 +4,6 @@
 	import Avatar from '/static/images/avatar.png';
 	import githubIcon from '/static/images/github_icon.svg';
 	import linkedInIcon from '/static/images/linkedin_icon.png';
-
-	console.log($page.params);
 </script>
 
 <!-- HTML -->

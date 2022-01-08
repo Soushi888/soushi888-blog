@@ -2,13 +2,19 @@
 	<title>Soushi888 | Admin</title>
 </svelte:head>
 
-<h1>Admin</h1>
+<main>
+	<h1>Admin</h1>
+</main>
 
-<style>
-	h1 {
-			text-align: center;
-			margin: 20px;
-			font-size: 3rem;
-			font-weight: 600;
-	}
+<style lang='scss'>
+  main {
+    height: calc(var(--full-heigth) - 220px);
+
+    h1 {
+      text-align: center;
+      margin: 20px;
+      font-size: 3rem;
+      font-weight: 600;
+    }
+  }
 </style>

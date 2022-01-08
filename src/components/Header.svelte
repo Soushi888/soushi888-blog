@@ -5,7 +5,7 @@
 </script>
 
 <!-- HTML -->
-<header>
+<header id='header'>
 	<img src='{FlowerOfLife}' alt='Fleur de vie'>
 	<div>
 		<h2>Citation du jour</h2>
@@ -22,7 +22,7 @@
     display: flex;
     justify-content: space-between;
     padding: var(--marge);
-    background: #FFFCDE;
+    background: var(--background-yellow);
 
     @media screen and (max-width: 1350px) {
       flex-wrap: wrap;

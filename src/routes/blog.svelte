@@ -8,11 +8,16 @@
 </main>
 
 <!-- CSS -->
-<style>
+<style lang='scss'>
+  main {
+    height: calc(var(--full-heigth) - 220px);
+
     h1 {
-        font-size: 3rem;
-        font-weight: 700;
-        text-align: center;
-        margin-top: 20px;
+      font-size: 3rem;
+      font-weight: 700;
+      text-align: center;
+      margin-top: 20px;
     }
+  }
+
 </style>

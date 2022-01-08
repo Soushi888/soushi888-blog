@@ -4,7 +4,7 @@
 </script>
 
 <!-- HTML -->
-<section>
+<section id='about'>
 	<h2>À propos</h2>
 	<div class='row'>
 		<div class='text-column'>
@@ -46,7 +46,7 @@
 
 <!-- CSS -->
 <style lang='scss'>
-  section {
+  #about {
     background: #EBE8CE;
     padding: 0 var(--marge);
 
