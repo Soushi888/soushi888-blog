@@ -30,6 +30,8 @@
     gap: var(--space);
 
     blog-card {
+			height: max-content;
+			align-self: center;
       border: var(--background-dark) solid 1px;
       border-radius: 2%;
       padding: 15px var(--space);
