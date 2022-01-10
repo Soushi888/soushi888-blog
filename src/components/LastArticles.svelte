@@ -13,10 +13,11 @@
 <style lang='scss'>
   #articles {
     background: var(--background-yellow);
+    padding: var(--space) var(--marge);
 
     h2 {
       text-align: center;
-      padding: var(--space);
+      margin-bottom: var(--space);
       font-weight: 600;
       font-size: 2rem;
     }

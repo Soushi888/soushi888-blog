@@ -1,27 +1,55 @@
 <script lang='ts'>
-	import thumbnail from '/static/images/maxim-berg-unsplash.jpg';
+	import { onMount } from 'svelte';
+	import PostStore from '../stores/post.store';
 
-	type Post = {
-		name: string
-		thumbnail: string
-		excerpt: string
-	}
-
-	const data: Post[] = [
-		{
-			name: 'Post 1',
-			thumbnail,
-			excerpt: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores assumenda culpa delectus dolores ea esse facere impedit, inventore ipsam nisi non numquam perspiciatis possimus praesentium.'
-		}
-	];
+	onMount(async () => {
+		await PostStore.getPosts();
+	});
 </script>
 
 <div class='BlogGrid'>
+	{#each $PostStore as post}
+		<div class='blog-card'>
+			<h3>{post.name}</h3>
+			<div>
+				<img src={post.thumbnail} alt={post.name}>
+			</div>
+			<p>{post.excerpt}</p>
+		</div>
+	{/each}
 </div>
 
 
-<style>
-    .BlogGrid {
+<style lang='scss'>
+  .BlogGrid {
+    display: grid;
+    grid-template-columns:  1fr 1fr 1fr;
+    gap: var(--space);
 
+
+    .blog-card {
+      border: var(--background-dark) solid 1px;
+      border-radius: 2%;
+			padding: 15px;
+
+      h3 {
+        text-align: center;
+        font-size: 1.4rem;
+				font-weight: 600;
+        margin-bottom: var(--space);
+      }
+
+      div {
+        display: flex;
+        justify-content: center;
+
+        img {
+          box-sizing: border-box;
+          width: 400px;
+          margin: auto;
+					border: var(--background-dark) 2px solid;
+        }
+      }
     }
+  }
 </style>

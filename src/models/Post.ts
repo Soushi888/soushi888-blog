@@ -7,6 +7,7 @@ export type Post = {
 	name: string;
 	slug: string;
 	thumbnail: string;
+	excerpt: string;
 	content: string;
 	tags: string[];
 	createdAt: Date;

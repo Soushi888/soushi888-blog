@@ -25,6 +25,7 @@ export const post = async (request: Request): Promise<Response> => {
 			.replaceAll(' ', '-');
 		if (!post.thumbnail) post.thumbnail = '/static/images/maxim-berg-unsplash.jpg';
 		if (!post.content) post.content = '';
+		if (!post.excerpt) post.excerpt = '';
 		if (!post.tags) post.tags = [];
 		post.createdAt = new Date();
 		post.updatedAt = new Date();
@@ -41,7 +42,7 @@ export const post = async (request: Request): Promise<Response> => {
 		return {
 			headers,
 			status: 500,
-			body: JSON.stringify({ message: 'A server error occurred' })
+			body: JSON.stringify({ error: e })
 		};
 	}
 
