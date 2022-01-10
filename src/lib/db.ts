@@ -29,7 +29,7 @@ if (!cached) {
 	cached = global.mongo = { conn: null, promise: null };
 }
 
-export async function connectToDatabase() {
+export async function connectToDatabase(): Promise<{ client: MongoClient, db: Db }> {
 	if (cached.conn) {
 		return cached.conn;
 	}
@@ -49,5 +49,5 @@ export async function connectToDatabase() {
 			});
 	}
 	cached.conn = await cached.promise;
-	return cached.conn as Promise<{ client: MongoClient, db: Db }>;
+	return cached.conn;
 }

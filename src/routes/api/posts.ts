@@ -1,12 +1,9 @@
-import { connectToDatabase } from '$lib/db';
-import { ObjectID } from 'mongodb';
 import PostModel from '$models/Post';
-import post from '$models/Post';
 
 export const get = async () => {
 	try {
-		let posts = await PostModel();
-		posts = await posts.getAllPosts();
+		const postModel = await PostModel();
+		const posts = await postModel.getAllPosts();
 
 		return {
 			body: posts
