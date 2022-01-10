@@ -10,6 +10,7 @@ export type Post = {
 	excerpt: string;
 	content: string;
 	tags: string[];
+	published: boolean;
 	createdAt: Date;
 	updatedAt: Date;
 }
@@ -24,6 +25,8 @@ async function PostModel(): Promise<PostModel> {
 	const dbConnection = await connectToDatabase();
 	const db = dbConnection.db;
 	const collection = db.collection('posts');
+	await collection.createIndex([{ name: 1 }, { createdAt: 1 }, { updatedAt: 1 }]);
+	await collection.createIndex({ slug: 1 }, { unique: true });
 
 	const getAllPosts = async () => {
 		return await collection.find().toArray() as unknown as Post[];
@@ -37,6 +40,5 @@ async function PostModel(): Promise<PostModel> {
 
 	return { getAllPosts, createPost };
 }
-
 
 export default PostModel;

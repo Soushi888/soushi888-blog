@@ -16,22 +16,21 @@ export const post = async (request: Request): Promise<Response> => {
 			status: 400,
 			body: JSON.stringify({ error: 'the name can\'t be empty' })
 		};
-
 		post.name.trim();
-		post.slug = post.name
+		post.slug = post.slug ?? post.name
 			.toLowerCase()
 			.replaceAll(/[^a-z0-9\s]/g, '')
 			.trim()
 			.replaceAll(' ', '-');
-		if (!post.thumbnail) post.thumbnail = '/static/images/maxim-berg-unsplash.jpg';
-		if (!post.content) post.content = '';
-		if (!post.excerpt) post.excerpt = '';
-		if (!post.tags) post.tags = [];
+		post.thumbnail = post.thumbnail ?? '/static/images/maxim-berg-unsplash.jpg';
+		post.content = post.content ?? '';
+		post.excerpt = post.excerpt ?? '';
+		post.tags = post.tags ?? [];
+		post.published = post.published ?? false;
 		post.createdAt = new Date();
 		post.updatedAt = new Date();
 
 		post._id = await postModel.createPost(post);
-
 
 		return {
 			headers,
@@ -45,5 +44,4 @@ export const post = async (request: Request): Promise<Response> => {
 			body: JSON.stringify({ error: e })
 		};
 	}
-
 };
