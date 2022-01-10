@@ -73,6 +73,7 @@
       img {
         max-width: 450px;
         max-height: 450px;
+				border: #193768 3px solid;
         border-radius: 50%;
       }
 

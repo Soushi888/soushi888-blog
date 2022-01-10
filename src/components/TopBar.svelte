@@ -7,11 +7,11 @@
 </script>
 
 <!-- HTML -->
-<div id='TopBar'>
-	<div>
+<top-bar id='TopBar'>
+	<logo>
 		<a href='/'><img src={Avatar} alt='Sacha Pignot' /></a>
 		<h1>Soushi888</h1>
-	</div>
+	</logo>
 
 	<nav>
 		<a href='/' class:active={$page.path === "/"}>Accueil</a>
@@ -21,7 +21,7 @@
 		<a href='https://github.com/Soushi888' target='_blank'><img src={githubIcon} alt='Github logo'></a>
 		<a href='https://www.linkedin.com/in/sacha-pignot/' target='_blank'><img src={linkedInIcon} alt='LinkedIn logo'></a>
 	</nav>
-</div>
+</top-bar>
 
 <!-- CSS -->
 <style lang='scss'>
@@ -39,11 +39,18 @@
     }
 
     img {
+      box-sizing: border-box;
       height: 80px;
       border-radius: 50%;
+      transition: 100ms ease all;
+
+      &:hover {
+        border: var(--red) 2px solid;
+      }
+
     }
 
-    div {
+    logo {
       display: flex;
       align-items: center;
       gap: var(--space)

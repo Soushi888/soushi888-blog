@@ -55,7 +55,7 @@
           transition: all 500ms ease;
 
           &:hover {
-            filter: grayscale(0.3);
+            filter: grayscale(0.5);
           }
         }
       }
