@@ -1,25 +1,53 @@
-import { MongoClient } from 'mongodb';
+import { Db, MongoClient, MongoClientOptions } from 'mongodb';
 import dotenv from 'dotenv';
 
+
 dotenv.config();
+const MONGODB_URI = process.env['MONGODB_URI'];
+const MONGODB_DB = process.env['MONGODB_DB'];
 
-const uri = process.env['MONGODB_URI'];
-let client, clientPromise;
-
-if (!uri) {
-	throw new Error('Please add your Mongo URI to .env.local');
+if (!MONGODB_URI) {
+	throw new Error(
+		'Please define the MONGODB_URI environment variable inside .env.local'
+	);
 }
 
-if (process.env['NODE_ENV'] === 'development') {
-	if (!global._mongoClientPromise) {
-		client = new MongoClient(uri);
-		global._mongoClientPromise = client.connect();
+if (!MONGODB_DB) {
+	throw new Error(
+		'Please define the MONGODB_DB environment variable inside .env.local'
+	);
+}
+
+/**
+ * Global is used here to maintain a cached connection across hot reloads
+ * in development. This prevents connections growing exponentially
+ * during API Route usage.
+ */
+let cached = global.mongo;
+
+if (!cached) {
+	cached = global.mongo = { conn: null, promise: null };
+}
+
+export async function connectToDatabase() {
+	if (cached.conn) {
+		return cached.conn;
 	}
-	clientPromise = global._mongoClientPromise;
-} else {
-	client = new MongoClient(uri);
-	clientPromise = client.connect();
+
+	if (!cached.promise) {
+		const opts = {
+			useNewUrlParser: true,
+			useUnifiedTopology: true
+		};
+
+		cached.promise = MongoClient.connect(MONGODB_URI, opts as MongoClientOptions)
+			.then((client) => {
+				return {
+					client,
+					db: client.db(MONGODB_DB)
+				};
+			});
+	}
+	cached.conn = await cached.promise;
+	return cached.conn as Promise<{ client: MongoClient, db: Db }>;
 }
-
-
-export default clientPromise as MongoClient;

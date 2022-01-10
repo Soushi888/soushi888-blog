@@ -1,13 +1,21 @@
-import clientPromise from '$lib/db';
+import { connectToDatabase } from '$lib/db';
+import { ObjectID } from 'mongodb';
+import PostModel from '$models/Post';
+import post from '$models/Post';
 
 export const get = async () => {
-	const dbConnection = await clientPromise;
-	const db = dbConnection.db("soushi888-blog");
-	const collection = db.collection('posts');
+	try {
+		let posts = await PostModel();
+		posts = await posts.getAllPosts();
 
-	const posts = await collection.find();
+		return {
+			body: posts
+		};
+	} catch (e) {
+		return {
+			status: 500,
+			body: { message: 'A server error occurred' }
+		};
+	}
 
-	return {
-		body: await posts.toArray()
-	};
 };
