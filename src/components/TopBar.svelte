@@ -42,18 +42,22 @@
       box-sizing: border-box;
       height: 80px;
       border-radius: 50%;
-      transition: 100ms ease all;
 
-      &:hover {
-        border: var(--red) 2px solid;
-      }
 
     }
 
     logo {
       display: flex;
       align-items: center;
-      gap: var(--space)
+      gap: var(--space);
+
+      img {
+        transition: 100ms ease all;
+
+        &:hover {
+          border: var(--red) 2px solid;
+        }
+      }
     }
 
     nav {

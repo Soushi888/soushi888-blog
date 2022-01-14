@@ -42,6 +42,7 @@ export async function connectToDatabase(): Promise<{ client: MongoClient, db: Db
 
 		cached.promise = MongoClient.connect(MONGODB_URI, opts as MongoClientOptions)
 			.then((client) => {
+				console.log("DB connected !");
 				return {
 					client,
 					db: client.db(MONGODB_DB)
