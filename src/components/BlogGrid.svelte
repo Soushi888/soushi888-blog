@@ -1,6 +1,8 @@
 <script lang='ts'>
 	import { onMount } from 'svelte';
-	import PostStore from '../stores/post.store';
+	import PostStore from '$stores/post.store'
+
+	const {posts} = PostStore
 
 	onMount(async () => {
 		await PostStore.getPosts();
@@ -8,15 +10,15 @@
 </script>
 
 <blog-grid>
-	{#each $PostStore as post}
+	{#each $posts as post}
 		<blog-card>
 			<h3>{post.name}</h3>
 			<thumbnail>
-				<a href='#articles'><img src={post.thumbnail} alt={post.name}></a>
+				<a href={`/blog/${post.slug}`}><img src={post.thumbnail} alt={post.name}></a>
 			</thumbnail>
 			<excerpt>
 				<p>{post.excerpt}</p>
-				<a class='read-more' href='#articles'>Lire plus...</a>
+				<a class='read-more' href={`/blog/${post.slug}`}>Lire plus...</a>
 			</excerpt>
 		</blog-card>
 	{/each}
@@ -51,7 +53,6 @@
           width: 100%;
           margin: var(--space) auto;
           border: var(--background-dark) 2px solid;
-          cursor: pointer;
           transition: all 500ms ease;
 
           &:hover {

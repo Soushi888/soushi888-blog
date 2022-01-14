@@ -28,7 +28,9 @@
 			"$models": ["src/models"],
 			"$models/*": ["src/models/*"],
 			"$components": ["src/components"],
-			"$components/*": ["src/components/*"]
+			"$components/*": ["src/components/*"],
+			"$stores": ["src/stores"],
+			"$stores/*": ["src/stores/*"]
 		}
 	},
 	"include": ["src/**/*.d.ts", "src/**/*.js", "src/**/*.ts", "src/**/*.svelte"]

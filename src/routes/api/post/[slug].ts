@@ -1,20 +1,19 @@
 import PostModel from '$models/Post';
-import type { Response } from '@sveltejs/kit';
 
 const headers = {
 	'Accepts': 'application/json',
 	'Content-Type': 'application/json'
 };
 
-export const get = async (): Promise<Response> => {
+export const get = async ({params}) => {
 	try {
 		const postModel = await PostModel();
-		const posts = await postModel.getAllPosts();
+		const post = await postModel.getPost(params.slug)
 
 		return {
 			headers,
 			status: 200,
-			body: JSON.stringify(posts)
+			body: JSON.stringify(post)
 		};
 	} catch (e) {
 		return {
@@ -23,4 +22,4 @@ export const get = async (): Promise<Response> => {
 			body: JSON.stringify({ message: 'A server error occurred' })
 		};
 	}
-};
+}

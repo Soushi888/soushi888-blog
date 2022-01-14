@@ -17,6 +17,7 @@ export type Post = {
 
 type PostModel = {
 	getAllPosts: () => Promise<Post[]>
+	getPost: (slug: string) => Promise<Post>
 	createPost: (post: Post) => Promise<ObjectId>
 }
 
@@ -29,7 +30,12 @@ async function PostModel(): Promise<PostModel> {
 	await collection.createIndex({ slug: 1 }, { unique: true });
 
 	const getAllPosts = async () => {
-		return await collection.find().toArray() as unknown as Post[];
+		return await collection.find({}, { projection: { content: 0 } })
+			.toArray() as unknown as Post[];
+	};
+
+	const getPost = async (slug: string) => {
+		return await collection.findOne({ slug }) as unknown as Post;
 	};
 
 	const createPost = async (post: Post) => {
@@ -38,7 +44,7 @@ async function PostModel(): Promise<PostModel> {
 	};
 
 
-	return { getAllPosts, createPost };
+	return { getAllPosts, getPost, createPost };
 }
 
 export default PostModel;
