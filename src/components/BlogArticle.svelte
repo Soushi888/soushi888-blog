@@ -26,6 +26,8 @@
 				<h2>Publié le <br>{formatedDate}</h2>
 			</texts>
 		</header>
+	{:else}
+		<h2 class='no-post'>Aucune publication trouvée...</h2>
 	{/if}
 </article>
 
@@ -59,6 +61,13 @@
           text-align: center;
         }
       }
+    }
+
+    .no-post {
+      text-align: center;
+      font-size: 2.5rem;
+      font-weight: 600;
+      padding-top: var(--space);
     }
   }
 </style>
