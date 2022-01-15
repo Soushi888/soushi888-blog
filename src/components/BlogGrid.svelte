@@ -1,8 +1,8 @@
 <script lang='ts'>
 	import { onMount } from 'svelte';
-	import PostStore from '$stores/post.store'
+	import PostStore from '$stores/post.store';
 
-	const {posts} = PostStore
+	const { posts } = PostStore;
 
 	onMount(async () => {
 		await PostStore.getPosts();
@@ -32,8 +32,8 @@
     gap: var(--space);
 
     blog-card {
-			height: max-content;
-			align-self: center;
+      height: max-content;
+      align-self: center;
       border: var(--background-dark) solid 1px;
       border-radius: 2%;
       padding: 15px var(--space);
@@ -63,14 +63,14 @@
 
       excerpt {
         .read-more {
-					display: block;
+          display: block;
           text-decoration: underline;
           margin-top: 10px;
           cursor: pointer;
 
-					&:hover {
-						color: var(--red);
-					}
+          &:hover {
+            color: var(--red);
+          }
         }
       }
     }

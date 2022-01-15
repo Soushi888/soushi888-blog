@@ -42,8 +42,6 @@
       box-sizing: border-box;
       height: 80px;
       border-radius: 50%;
-
-
     }
 
     logo {
