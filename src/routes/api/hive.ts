@@ -12,7 +12,7 @@ export const get = async (): Promise<Response> => {
   try {
     const client = new Client("https://api.hive.blog");
     let query: DisqussionQuery = {
-      tag: "soushi888",
+      tag: author,
       limit: 20,
     };
 
