@@ -1,5 +1,5 @@
 import { Client, Discussion, DisqussionQuery } from "@hiveio/dhive";
-import type { Response } from "@sveltejs/kit";
+import type { ResponseBody } from "@sveltejs/kit";
 
 const headers = {
   "Accepts": "application/json",
@@ -8,7 +8,7 @@ const headers = {
 
 const author = "soushi888";
 
-export const get = async (): Promise<Response> => {
+export const get = async (): Promise<ResponseBody> => {
   try {
     const client = new Client("https://api.hive.blog");
     let query: DisqussionQuery = {

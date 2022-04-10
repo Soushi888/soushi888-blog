@@ -1,12 +1,12 @@
 import PostModel from '$models/Post';
-import type { Response } from '@sveltejs/kit';
+import type { ResponseBody } from '@sveltejs/kit';
 
 const headers = {
 	'Accepts': 'application/json',
 	'Content-Type': 'application/json'
 };
 
-export const get = async (): Promise<Response> => {
+export const get = async (): Promise<ResponseBody> => {
 	try {
 		const postModel = await PostModel();
 		const posts = await postModel.getAllPosts();
