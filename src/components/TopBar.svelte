@@ -14,8 +14,8 @@
 	</logo>
 
 	<nav>
-		<a href='/' class:active={$page.path === "/"}>Accueil</a>
-		<a href='/blog' class:active={$page.path === "/blog"}>Blog</a>
+		<a href='/' class:active={$page.url.pathname === "/"}>Accueil</a>
+		<a href='/blog' class:active={$page.url.pathname === "/blog"}>Blog</a>
 	</nav>
 	<nav>
 		<a href='https://github.com/Soushi888' target='_blank'><img src={githubIcon} alt='Github logo'></a>
