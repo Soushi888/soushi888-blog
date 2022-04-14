@@ -4,16 +4,16 @@ import * as path from "path";
 
 /** @type {import("@sveltejs/kit").Config} */
 const config = {
-  preprocess: preprocess(),
+  preprocess: preprocess({sourceMap: true}),
 
   kit: {
     adapter: adapter(),
     vite: {
       resolve: {
         alias: {
-          $models: path.resolve("./src/models"),
-          $components: path.resolve("./src/components"),
-          $stores: path.resolve("./src/stores")
+          $models: path.resolve("/src/models"),
+          $components: path.resolve("/src/components"),
+          $stores: path.resolve("/src/stores")
         }
       },
       server: {

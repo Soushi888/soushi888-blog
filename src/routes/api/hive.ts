@@ -1,4 +1,5 @@
-import { Client, Discussion, DisqussionQuery } from "@hiveio/dhive";
+import { Client } from "@hiveio/dhive";
+import type { Discussion, DisqussionQuery } from "@hiveio/dhive";
 import type { ResponseBody } from "@sveltejs/kit";
 
 const headers = {
@@ -13,16 +14,16 @@ export const get = async (): Promise<ResponseBody> => {
     const client = new Client("https://api.hive.blog");
     let query: DisqussionQuery = {
       tag: author,
-      limit: 20,
+      limit: 20
     };
 
     let posts: Discussion[] = await client.database.getDiscussions("blog", query);
-    posts = posts.filter(p => p.author === author)
+    posts = posts.filter(p => p.author === author);
     console.log(posts.length, "posts fetched.");
     posts.forEach(p => {
-      delete p.active_votes
+      delete p.active_votes;
       p.json_metadata = JSON.parse(p.json_metadata);
-    })
+    });
 
     return {
       headers,
