@@ -1,35 +1,36 @@
 import { writable } from 'svelte/store';
-import type { Discussion } from "@hiveio/dhive";
-
-const api = 'http://localhost:3000/api';
+import type { Discussion } from '@hiveio/dhive';
+import { Client, type DisqussionQuery } from '@hiveio/dhive';
 
 const HiveStore = () => {
 	const posts = writable<Discussion[]>([]);
 	const post = writable<Discussion>();
 
+	const client = new Client('https://api.hive.blog');
+	const author = 'soushi888';
+
 	const getPosts = async () => {
 		try {
-			const response = await fetch(`${api}/hive`);
-			const result = await response.json();
+			const query: DisqussionQuery = {
+				tag: author,
+				limit: 20
+			};
 
-			posts.set(result);
+			let discussions: Discussion[] = await client.database.getDiscussions('blog', query);
+			discussions = discussions.filter(p => p.author === author);
+			console.log(discussions.length, 'posts fetched.');
+			discussions.forEach(p => {
+				delete p.active_votes;
+				p.json_metadata = JSON.parse(p.json_metadata);
+			});
+
+			posts.set(discussions);
 		} catch (e) {
 			console.error(e);
 		}
 	};
 
-	const getPost = async (slug: string) => {
-		try {
-			const response = await fetch(`${api}/hive/${slug}`);
-			const result = await response.json();
-
-			post.set(result);
-		} catch (e) {
-			console.error(e);
-		}
-	};
-
-	return { posts, post, getPosts, getPost };
+	return { posts, post, getPosts };
 };
 
 const posts = HiveStore();

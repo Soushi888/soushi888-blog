@@ -17,6 +17,7 @@
 		<a href='/' class:active={$page.url.pathname === "/"}>Accueil</a>
 		<a href='/blog' class:active={$page.url.pathname === "/blog"}>Blog</a>
 	</nav>
+
 	<nav>
 		<a href='https://github.com/Soushi888' target='_blank'><img src={githubIcon} alt='Github logo'></a>
 		<a href='https://www.linkedin.com/in/sacha-pignot/' target='_blank'><img src={linkedInIcon} alt='LinkedIn logo'></a>

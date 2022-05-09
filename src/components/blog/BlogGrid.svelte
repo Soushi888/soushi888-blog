@@ -1,37 +1,37 @@
 <script lang='ts'>
 	import { onMount } from 'svelte';
-	import PostStore from '$stores/post.store';
+	import HiveStore from '$stores/hive.store';
 
-	const { posts } = PostStore;
+	const { posts, getPosts } = HiveStore;
 
 	onMount(async () => {
-		await PostStore.getPosts();
+		await getPosts();
 	});
 </script>
 
-<blog-grid>
+<div class='blog-grid'>
 	{#each $posts as post}
-		<blog-card>
-			<h3>{post.name}</h3>
-			<thumbnail>
-				<a href={`/blog/${post.slug}`}><img src={post.thumbnail} alt={post.name}></a>
-			</thumbnail>
-			<excerpt>
-				<p>{post.excerpt}</p>
-				<a class='read-more' href={`/blog/${post.slug}`}>Lire plus...</a>
-			</excerpt>
-		</blog-card>
+		<div class='blog-card'>
+			<h3>{post.title}</h3>
+				<div class='thumbnail'>
+					<a href={`/blog/${post.slug}`}><img src={post.json_metadata.image} alt={post.name}></a>
+				</div>
+			<div class='excerpt'>
+				<p>{post.body.split(' ', 25).join(' ')}...</p>
+				<a class='read-more' href={`https://peakd.com${post.url}`}>Lire plus</a>
+			</div>
+		</div>
 	{/each}
-</blog-grid>
+</div>
 
 
 <style lang='scss'>
-  blog-grid {
+  .blog-grid {
     display: grid;
     grid-template-columns:  1fr 1fr 1fr;
     gap: var(--space);
 
-    blog-card {
+    .blog-card {
       height: max-content;
       align-self: center;
       border: var(--background-dark) solid 1px;
@@ -44,7 +44,7 @@
         font-weight: 600;
       }
 
-      thumbnail {
+      .thumbnail {
         display: flex;
         justify-content: center;
 
@@ -61,7 +61,7 @@
         }
       }
 
-      excerpt {
+      .excerpt {
         .read-more {
           display: block;
           text-decoration: underline;

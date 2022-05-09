@@ -1,4 +1,4 @@
-import { Db, MongoClient, MongoClientOptions } from 'mongodb';
+import { Db, MongoClient, type MongoClientOptions } from 'mongodb';
 import dotenv from 'dotenv';
 
 
@@ -42,7 +42,7 @@ export async function connectToDatabase(): Promise<{ client: MongoClient, db: Db
 
 		cached.promise = MongoClient.connect(MONGODB_URI, opts as MongoClientOptions)
 			.then((client) => {
-				console.log("DB connected !");
+				console.log('DB connected !');
 				return {
 					client,
 					db: client.db(MONGODB_DB)

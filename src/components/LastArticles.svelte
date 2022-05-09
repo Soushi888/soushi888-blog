@@ -1,6 +1,6 @@
 <!-- JS -->
 <script>
-	import BlogGrid from './BlogGrid.svelte';
+	import BlogGrid from './blog/BlogGrid.svelte';
 </script>
 
 <!-- HTML -->

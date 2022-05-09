@@ -1,7 +1,7 @@
 <script lang='ts'>
 	import { page } from '$app/stores';
 	import { onMount } from 'svelte';
-	import PostStore from '$stores/post.store';
+	import PostStore from 'src/stores/post.store';
 
 	const { slug } = $page.params;
 	const { post } = PostStore;
@@ -21,10 +21,10 @@
 <article>
 	{#if ($post)}
 		<header bind:this={header}>
-			<texts>
+			<div class='texts'>
 				<h1>{$post.name}</h1>
 				<h2>Publié le <br>{formatedDate}</h2>
-			</texts>
+			</div>
 		</header>
 	{:else}
 		<h2 class='no-post'>Aucune publication trouvée...</h2>
@@ -44,7 +44,7 @@
       background-position: center;
       border-bottom: 2px var(--background-dark) solid;
 
-      texts {
+      .texts {
         padding: calc(var(--space) * 2) calc(var(--space) * 3);
         border-radius: 25px;
         color: var(--background-light);

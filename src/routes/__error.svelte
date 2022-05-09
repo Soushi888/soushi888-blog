@@ -1,11 +1,10 @@
 <!-- JS -->
 <script context='module'>
-	export const load = ({ status, error, page }) => {
-		console.log(page.path);
+	export const load = ({ status, error }) => {
 		return {
 			props: {
 				error,
-				status,
+				status
 			}
 		};
 	};
