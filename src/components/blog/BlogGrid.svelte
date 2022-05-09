@@ -21,7 +21,7 @@
 				</div>
 			{/if}
 			<div class='excerpt'>
-				<p>{post.body.split(' ', 25).join(' ')}...</p>
+				<p>{post.json_metadata.description ?? post.body.split(" ", 25).join(" ")}...</p>
 				<a class='read-more' target='_blank' href={`${peakDLink}${post.url}`}>Lire plus</a>
 			</div>
 		</div>
@@ -66,7 +66,7 @@
       }
 
       .excerpt {
-				word-break: break-word;
+        word-break: break-word;
 
         .read-more {
           display: block;

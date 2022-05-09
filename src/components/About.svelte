@@ -33,15 +33,6 @@
 				fugiat harum.</p>
 		</div>
 	</div>
-	<div class='text-row'>
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium animi aperiam atque aut blanditiis,
-			consequuntur dolor earum, libero maxime minus nisi nostrum nulla numquam obcaecati odit omnis quia tempore vero?
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad asperiores dicta dolorem eius enim est harum hic
-			iusto laboriosam minima minus, nam obcaecati officia omnis quaerat quod rem veritatis voluptas.</p>
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus ad aut culpa distinctio ducimus eligendi eos
-			eveniet illum iste maiores nostrum, nulla obcaecati, perferendis praesentium quasi reprehenderit sapiente
-			similique tempora.</p>
-	</div>
 </section>
 
 <!-- CSS -->
@@ -86,12 +77,6 @@
           height: 100%;
         }
       }
-    }
-
-    .text-row {
-      display: flex;
-      flex-direction: column;
-      padding: var(--space) 0;
     }
 
     @media screen and (max-width: 1000px) {

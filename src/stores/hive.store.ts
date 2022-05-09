@@ -6,8 +6,10 @@ const HiveStore = () => {
 	const posts = writable<Discussion[]>([]);
 	const post = writable<Discussion>();
 
-	const client = new Client('https://api.hive.blog');
 	const author = 'soushi888';
+	const node = 'https://api.hive.blog';
+	const client = new Client(node);
+	console.log('Connection to the Hive node : ', node);
 
 	const getPosts = async () => {
 		try {
@@ -17,7 +19,7 @@ const HiveStore = () => {
 			};
 
 			let discussions: Discussion[] = await client.database.getDiscussions('blog', query);
-			discussions = discussions.filter(p => p.author === author);
+			discussions = discussions.filter(p => p.author === author && !JSON.parse(p.json_metadata).original_author);
 			console.log(discussions.length, 'posts fetched.');
 			discussions.forEach(p => {
 				delete p.active_votes;
@@ -33,5 +35,4 @@ const HiveStore = () => {
 	return { posts, post, getPosts };
 };
 
-const posts = HiveStore();
-export default posts;
+export default HiveStore();
