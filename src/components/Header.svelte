@@ -16,7 +16,7 @@
 	<img src={Network} alt='Réseau pair à pair'>
 </header>
 
-<!-- CSS -->
+<!-- SCSS -->
 <style lang='scss'>
   header {
     display: flex;

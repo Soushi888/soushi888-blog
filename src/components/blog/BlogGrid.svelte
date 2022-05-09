@@ -35,6 +35,14 @@
     grid-template-columns:  1fr 1fr 1fr;
     gap: var(--space);
 
+    @media screen and (max-width: 1250px) {
+      grid-template-columns:  1fr 1fr;
+    }
+
+    @media screen and (max-width: 950px) {
+      grid-template-columns:  1fr;
+    }
+
     .blog-card {
       height: max-content;
       align-self: center;

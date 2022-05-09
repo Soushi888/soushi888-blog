@@ -4,7 +4,7 @@
 	<span id='top-btn' on:click={() => document.documentElement.scrollTop = 0}>Top</span>
 </footer>
 
-<!-- CSS -->
+<!-- SCSS -->
 <style lang='scss'>
   footer {
     display: flex;
