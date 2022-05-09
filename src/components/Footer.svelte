@@ -1,6 +1,6 @@
 <!-- HTML -->
 <footer>
-	<h1>Footer</h1>
+	<h1>Made with <span>♥</span> by @Soushi888</h1>
 	<span id='top-btn' on:click={() => document.documentElement.scrollTop = 0}>Top</span>
 </footer>
 
@@ -18,6 +18,10 @@
     h1 {
       font-size: 3rem;
       font-weight: 600;
+
+			span {
+				color: red;
+			}
     }
 
     #top-btn {

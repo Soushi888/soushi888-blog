@@ -48,13 +48,13 @@
 <style lang='scss'>
   #about {
     background: #EBE8CE;
-    padding: 0 var(--marge);
+    padding: var(--space) var(--marge);
 
     h2 {
       text-align: center;
       font-weight: 600;
       font-size: 2rem;
-      padding: var(--space);
+      padding-bottom: var(--space);
     }
 
     p {
@@ -73,7 +73,7 @@
       img {
         max-width: 450px;
         max-height: 450px;
-				border: #193768 3px solid;
+        border: #193768 3px solid;
         border-radius: 50%;
       }
 
