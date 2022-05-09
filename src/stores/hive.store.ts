@@ -19,11 +19,11 @@ const HiveStore = () => {
 			};
 
 			let discussions: Discussion[] = await client.database.getDiscussions('blog', query);
-			discussions = discussions.filter(p => p.author === author && !JSON.parse(p.json_metadata).original_author);
+			discussions = discussions.filter(d => d.author === author && !JSON.parse(d.json_metadata).original_author);
 			console.log(discussions.length, 'posts fetched.');
-			discussions.forEach(p => {
-				delete p.active_votes;
-				p.json_metadata = JSON.parse(p.json_metadata);
+			discussions.forEach(d => {
+				delete d.active_votes;
+				d.json_metadata = JSON.parse(d.json_metadata);
 			});
 
 			posts.set(discussions);
