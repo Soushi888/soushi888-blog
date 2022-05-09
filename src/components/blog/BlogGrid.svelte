@@ -3,6 +3,7 @@
 	import HiveStore from '$stores/hive.store';
 
 	const { posts, getPosts } = HiveStore;
+	const peakDLink = 'https://peakd.com';
 
 	onMount(async () => {
 		await getPosts();
@@ -13,12 +14,15 @@
 	{#each $posts as post}
 		<div class='blog-card'>
 			<h3>{post.title}</h3>
+			{#if post.json_metadata.image[0]}
 				<div class='thumbnail'>
-					<a href={`/blog/${post.slug}`}><img src={post.json_metadata.image} alt={post.name}></a>
+					<a href={`${peakDLink}${post.url}`} target='_blank'><img src={post.json_metadata.image[0]}
+																																	 alt={post.name}></a>
 				</div>
+			{/if}
 			<div class='excerpt'>
 				<p>{post.body.split(' ', 25).join(' ')}...</p>
-				<a class='read-more' href={`https://peakd.com${post.url}`}>Lire plus</a>
+				<a class='read-more' target='_blank' href={`${peakDLink}${post.url}`}>Lire plus</a>
 			</div>
 		</div>
 	{/each}
@@ -50,7 +54,7 @@
 
         img {
           box-sizing: border-box;
-          width: 100%;
+          width: 300px;
           margin: var(--space) auto;
           border: var(--background-dark) 2px solid;
           transition: all 500ms ease;
@@ -62,6 +66,8 @@
       }
 
       .excerpt {
+				word-break: break-word;
+
         .read-more {
           display: block;
           text-decoration: underline;
