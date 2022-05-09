@@ -1,4 +1,4 @@
-import PostModel, { Post } from '$models/Post';
+import PostModel, { type Post } from '$models/Post';
 import type { RequestHandlerOutput, ResponseBody } from '@sveltejs/kit';
 
 const headers = {

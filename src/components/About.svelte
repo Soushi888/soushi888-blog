@@ -33,28 +33,19 @@
 				fugiat harum.</p>
 		</div>
 	</div>
-	<div class='text-row'>
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium animi aperiam atque aut blanditiis,
-			consequuntur dolor earum, libero maxime minus nisi nostrum nulla numquam obcaecati odit omnis quia tempore vero?
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad asperiores dicta dolorem eius enim est harum hic
-			iusto laboriosam minima minus, nam obcaecati officia omnis quaerat quod rem veritatis voluptas.</p>
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus ad aut culpa distinctio ducimus eligendi eos
-			eveniet illum iste maiores nostrum, nulla obcaecati, perferendis praesentium quasi reprehenderit sapiente
-			similique tempora.</p>
-	</div>
 </section>
 
 <!-- CSS -->
 <style lang='scss'>
   #about {
     background: #EBE8CE;
-    padding: 0 var(--marge);
+    padding: var(--space) var(--marge);
 
     h2 {
       text-align: center;
       font-weight: 600;
       font-size: 2rem;
-      padding: var(--space);
+      padding-bottom: var(--space);
     }
 
     p {
@@ -73,7 +64,7 @@
       img {
         max-width: 450px;
         max-height: 450px;
-				border: #193768 3px solid;
+        border: #193768 3px solid;
         border-radius: 50%;
       }
 
@@ -86,12 +77,6 @@
           height: 100%;
         }
       }
-    }
-
-    .text-row {
-      display: flex;
-      flex-direction: column;
-      padding: var(--space) 0;
     }
 
     @media screen and (max-width: 1000px) {
