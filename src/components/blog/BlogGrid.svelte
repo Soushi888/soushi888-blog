@@ -21,8 +21,8 @@
 				</div>
 			{/if}
 			<div class='excerpt'>
-				<p>{post.json_metadata.description ?? post.body.split(" ", 25).join(" ")}...</p>
-				<a class='read-more' target='_blank' href={`${peakDLink}${post.url}`}>Lire plus</a>
+				<p>{post.json_metadata.description ?? `${post.body.split(" ", 25).join(" ")}...`}</p>
+				<a class='read-more' href={`/blog/${post.permlink}`}>Lire plus</a>
 			</div>
 		</div>
 	{/each}
