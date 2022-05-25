@@ -12,7 +12,8 @@
 <script lang='ts'>
 	import { onMount } from 'svelte';
 	import HiveStore from '$stores/hive.store';
-	// import BlogArticle from '$components/BlogArticle.svelte';
+	import BlogArticle from '$components/blog/BlogArticle.svelte';
+
 	const { post, getPost } = HiveStore;
 
 	export let slug;
@@ -29,18 +30,22 @@
 <!-- HTML -->
 <main>
 	{#if $post}
-		<h2>{$post.root_title}</h2>
-		<p>{$post.body}</p>
+		<BlogArticle post={$post} />
+	{:else}
+		<h2 class='no-post'>Aucune publication trouvée...</h2>
 	{/if}
 </main>
 
 <!-- CSS -->
 <style lang='scss'>
   main {
-    height: calc(var(--full-heigth) - 200px);
+    min-height: calc(var(--full-heigth) - 200px);
 
-	h2 {
-		font-size: 2rem;
-	}
-	}
+    .no-post {
+      text-align: center;
+      font-size: 2.5rem;
+      font-weight: 600;
+      padding-top: var(--space);
+    }
+  }
 </style>

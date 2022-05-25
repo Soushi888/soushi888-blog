@@ -24,6 +24,14 @@
       }
     }
 
+		a {
+			color: #1d54ad;
+
+			&:hover {
+				color: #073f98;
+			}
+		}
+
     #top-btn {
       font-weight: 600;
       background: var(--background-light);

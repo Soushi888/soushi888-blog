@@ -4,6 +4,8 @@ node_modules
 /.svelte-kit
 /package
 .idea
+.sass-cache
 .env
 *.pnp.*
 /.yarn
+yarn-error.log

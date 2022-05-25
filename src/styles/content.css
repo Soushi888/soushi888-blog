@@ -1,0 +1,9 @@
+.content {
+  margin-top: var(--marge-sm);
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+  .content h2 {
+    font-size: 2rem; }
+
+/*# sourceMappingURL=content.css.map */

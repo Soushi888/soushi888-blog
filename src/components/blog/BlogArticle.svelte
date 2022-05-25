@@ -1,34 +1,38 @@
 <script lang='ts'>
-	import { page } from '$app/stores';
+	import { Converter } from 'showdown';
 	import { onMount } from 'svelte';
-	import PostStore from 'src/stores/post.store';
+	import { Discussion } from '@hiveio/dhive';
 
-	const { slug } = $page.params;
-	const { post } = PostStore;
+	export let post: Discussion;
 
 	let header: HTMLDivElement;
-	let createdDate, formatedDate;
+	let content: HTMLDivElement;
+	let formatedDate;
 
 	onMount(async () => {
-		await PostStore.getPost(slug);
-		header.style.backgroundImage = `url(${$post.thumbnail})`;
-		createdDate = new Date($post.createdAt);
+		let createdDate = new Date(post.created);
 		formatedDate = `${createdDate.getDate()}-${createdDate.getMonth() + 1}-${createdDate.getFullYear()}`;
-	});
 
+		let image = JSON.parse(post.json_metadata).image[0];
+		header.style.backgroundImage = `url(${image})`;
+
+		let converter = new Converter();
+		content.innerHTML = converter.makeHtml(post.body);
+	});
 </script>
 
+<svelte:head>
+	<link rel='stylesheet' href='/src/styles/content.css'>
+</svelte:head>
+
 <article>
-	{#if ($post)}
-		<header bind:this={header}>
-			<div class='texts'>
-				<h1>{$post.name}</h1>
-				<h2>Publié le <br>{formatedDate}</h2>
-			</div>
-		</header>
-	{:else}
-		<h2 class='no-post'>Aucune publication trouvée...</h2>
-	{/if}
+	<header bind:this={header}>
+		<div class='texts'>
+			<h1>{post.root_title}</h1>
+			<h2>Publié le <br>{formatedDate}</h2>
+		</div>
+	</header>
+	<div class='content' bind:this={content}></div>
 </article>
 
 
@@ -42,6 +46,7 @@
       align-items: center;
       background-size: cover;
       background-position: center;
+			background-repeat: no-repeat;
       border-bottom: 2px var(--background-dark) solid;
 
       .texts {
@@ -61,13 +66,6 @@
           text-align: center;
         }
       }
-    }
-
-    .no-post {
-      text-align: center;
-      font-size: 2.5rem;
-      font-weight: 600;
-      padding-top: var(--space);
     }
   }
 </style>
