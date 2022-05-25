@@ -1,4 +1,4 @@
-# create-svelte
+# Soushi888 Hive Blog
 
 Personal Hive blog created with [Svelte Kit](https://kit.velte.dev) and the JS librairie [@hiveio/dhive](https://developers.hive.io/tutorials/#tutorials-javascript).
 
