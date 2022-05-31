@@ -1,0 +1,43 @@
+.showdown-content {
+  margin: var(--marge-sm) auto auto;
+  padding-bottom: var(--marge-sm);
+  width: 1400px;
+
+  h1 {
+    font-size: 2.5rem;
+    margin: var(--space) auto;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  p {
+    line-break: auto;
+
+    &:not(:last-child) {
+      margin-bottom: var(--space);
+    }
+  }
+
+  ul {
+    margin-bottom: var(--space);
+  }
+
+  img {
+    display: block;
+    max-width: 1200px;
+    margin: var(--marge-sm) auto;
+  }
+
+  blockquote {
+    margin-left: 50px;
+    padding-left: 50px;
+    margin-bottom: var(--space);
+    border-left: var(--background-light) 5px solid;
+
+    p:not(:last-of-type) {
+      margin-bottom: var(--space);
+    }
+  }
+}
