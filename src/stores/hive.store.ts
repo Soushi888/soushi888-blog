@@ -34,18 +34,12 @@ const HiveStore = () => {
 
 	const getPost = async (permalink: string) => {
 		console.log('get post :', permalink);
-		posts.subscribe(async value => {
-			if (value.length) {
-				post.set(value.filter(d => d.permlink === permalink)[0]);
-			} else {
-				try {
-					const content = await client.database.call('get_content', [author, permalink]);
-					post.set(content);
-				} catch (e) {
-					console.error(e);
-				}
-			}
-		});
+		try {
+			const content = await client.database.call('get_content', [author, permalink]);
+			post.set(content);
+		} catch (e) {
+			console.error(e);
+		}
 	};
 
 	return { posts, post, getPosts, getPost };
