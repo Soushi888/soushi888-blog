@@ -3,7 +3,6 @@
 	import HiveStore from '$stores/hive.store';
 
 	const { posts, getPosts } = HiveStore;
-	const peakDLink = 'https://peakd.com';
 
 	onMount(async () => {
 		await getPosts();
@@ -16,7 +15,7 @@
 			<h3>{post.title}</h3>
 			{#if post.json_metadata.image[0]}
 				<div class='thumbnail'>
-					<a href={`${peakDLink}${post.url}`} target='_blank'><img src={post.json_metadata.image[0]}
+					<a href={`/blog/${post.permlink}`}><img src={post.json_metadata.image[0]}
 																																	 alt={post.name}></a>
 				</div>
 			{/if}
