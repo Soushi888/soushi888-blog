@@ -4,6 +4,8 @@
 	import Avatar from '/static/images/avatar.png';
 	import githubIcon from '/static/images/github_icon.svg';
 	import linkedInIcon from '/static/images/linkedin_icon.png';
+
+	const {pathname} = $page.url;
 </script>
 
 <!-- HTML -->
@@ -14,8 +16,8 @@
 	</logo>
 
 	<nav>
-		<a href='/' class:active={$page.url.pathname === "/"}>Accueil</a>
-		<a href='/blog' class:active={$page.url.pathname === "/blog"}>Blog</a>
+		<a href='/' class:active={pathname === "/"}>Accueil</a>
+		<a href='/blog' class:active={pathname === "/blog"}>Blog</a>
 	</nav>
 
 	<nav>

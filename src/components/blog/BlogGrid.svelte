@@ -33,7 +33,7 @@
 		justify-content: center;
 		flex-direction: row;
 		flex-wrap: wrap;
-		gap: 20px;
+		gap: 25px;
 
 
 		.blog-card {
@@ -57,6 +57,7 @@
 				img {
 					box-sizing: border-box;
 					width: 300px;
+					max-height: 500px;
 					margin: var(--space) auto;
 					border: var(--background-dark) 2px solid;
 					transition: all 500ms ease;
