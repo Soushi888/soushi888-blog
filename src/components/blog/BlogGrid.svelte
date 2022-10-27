@@ -1,8 +1,6 @@
 <script lang='ts'>
 	import { onMount } from 'svelte';
-	import HiveStore from '$stores/hive.store';
-
-	const { posts, getPosts } = HiveStore;
+	import { posts, getPosts } from '$stores/hive.store';
 
 	onMount(async () => {
 		await getPosts();
