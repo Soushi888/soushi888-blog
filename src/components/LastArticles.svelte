@@ -12,7 +12,6 @@
 <!-- CSS -->
 <style lang='scss'>
   #articles {
-    background: var(--background-yellow);
     padding: var(--space) var(--marge);
 
     h2 {

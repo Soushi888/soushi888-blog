@@ -7,6 +7,7 @@
   --background-light: #C4C4C4;
   --background-yellow: #FFFCDE;
   --red: #e10d0d;
-  --red-filter: brightness(0) saturate(100%) invert(15%) sepia(97%) saturate(7467%) hue-rotate(21deg) brightness(98%) contrast(114%); }
+  --red-filter: brightness(0) saturate(100%) invert(15%) sepia(97%) saturate(7467%) hue-rotate(21deg) brightness(98%) contrast(114%);
+}
 
 /*# sourceMappingURL=variables.css.map */

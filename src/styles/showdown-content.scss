@@ -10,6 +10,7 @@
 
   h2 {
     font-size: 2rem;
+    margin: calc(var(--space) / 2) auto;
   }
 
   p {
@@ -22,6 +23,12 @@
 
   ul {
     margin-bottom: var(--space);
+  }
+
+  li {
+    list-style: disc;
+    margin-left: var(--space);
+    font-size: 1.2rem;
   }
 
   img {

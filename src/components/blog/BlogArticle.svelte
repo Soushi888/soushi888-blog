@@ -42,8 +42,6 @@
 <!-- CSS -->
 <style lang='scss'>
   article {
-    background: var(--background-yellow);
-
     header {
       height: 400px;
       display: flex;

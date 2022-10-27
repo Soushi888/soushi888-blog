@@ -13,9 +13,9 @@ const config = {
 		vite: {
 			resolve: {
 				alias: {
-					$models: path.resolve("/src/models"),
-					$components: path.resolve("/src/components"),
-					$stores: path.resolve("/src/stores")
+					$models: path.resolve("src/models"),
+					$components: path.resolve("src/components"),
+					$stores: path.resolve("src/stores")
 				}
 			},
 			server: {

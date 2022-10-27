@@ -22,7 +22,6 @@
     display: flex;
     justify-content: space-between;
     padding: var(--marge);
-    background: var(--background-yellow);
 
     @media screen and (max-width: 1350px) {
       flex-wrap: wrap;
