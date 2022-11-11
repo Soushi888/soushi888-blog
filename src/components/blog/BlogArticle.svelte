@@ -1,41 +1,31 @@
 <script lang='ts'>
-	import { Converter } from 'showdown';
-	import Autolinker from 'autolinker';
-	import { afterUpdate } from 'svelte';
-	import { Discussion } from '@hiveio/dhive';
+  import {afterUpdate} from 'svelte';
+  import {Discussion} from '@hiveio/dhive';
+  import ShowdownContent from "./ShowdownContent.svelte";
 
-	export let post: Discussion;
+  export let post: Discussion;
 
-	let header: HTMLDivElement;
-	let content: HTMLDivElement;
-	let formatedDate;
+  let header: HTMLDivElement;
+  let formattedDate;
 
-	afterUpdate(async () => {
-		let createdDate = new Date(post.created);
-		formatedDate = `${createdDate.getDate()}-${createdDate.getMonth() + 1}-${createdDate.getFullYear()}`;
+  afterUpdate(() => {
+    const createdDate = new Date(post.created);
+    formattedDate = `${createdDate.getDate()}-${createdDate.getMonth() + 1}-${createdDate.getFullYear()}`;
 
-		let image = JSON.parse(post.json_metadata).image[0];
-		header.style.backgroundImage = `url(${image})`;
-
-		let converter = new Converter();
-		let autolinker = new Autolinker();
-		let html = converter.makeHtml(post.body);
-		content.innerHTML = autolinker.link(html);
-	});
+    const image = JSON.parse(post.json_metadata).image[0];
+    header.style.backgroundImage = `url(${image})`;
+  });
 </script>
 
-<svelte:head>
-	<link rel='stylesheet' href='/static/styles/showdown-content.css'>
-</svelte:head>
-
 <article>
-	<header bind:this={header}>
-		<div class='texts'>
-			<h1>{post.root_title}</h1>
-			<h2>Publié le <br>{formatedDate}</h2>
-		</div>
-	</header>
-	<div class='showdown-content' bind:this={content}></div>
+  <header bind:this={header}>
+    <div class='texts'>
+      <h1>{post.root_title}</h1>
+      <h2>Publié le <br>{formattedDate}</h2>
+    </div>
+  </header>
+
+  <ShowdownContent content={post.body}/>
 </article>
 
 
