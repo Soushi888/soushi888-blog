@@ -17,7 +17,7 @@
   {@html content}
 </div>
 
-<style lang="scss">
+<style lang="scss" global>
   .showdown-content {
     margin: var(--marge-sm) auto auto;
     padding-bottom: var(--marge-sm);
