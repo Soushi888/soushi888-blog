@@ -25,7 +25,7 @@
 </script>
 
 <svelte:head>
-	<link rel='stylesheet' href='/src/styles/showdown-content.css'>
+	<link rel='stylesheet' href='/static/styles/showdown-content.css'>
 </svelte:head>
 
 <article>

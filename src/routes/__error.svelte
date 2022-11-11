@@ -10,8 +10,8 @@
 	};
 </script>
 <script>
-	import '/static/reset.css';
-	import '../styles/variables.scss';
+	import '/static/styles/reset.css';
+	import '/static/styles/variables.scss';
 
 	export let error, status;
 </script>
